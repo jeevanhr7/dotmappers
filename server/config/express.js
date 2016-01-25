@@ -12,14 +12,14 @@ module.exports = function(app){
     app.set('views', path.normalize(__dirname + '/..') + '/views');
     app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// uncomment after placing your favicon in /client
+//app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
     app.use(logger('dev'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cookieParser());
 
-    // Serving public and angular files from public folder
-    app.use(express.static(path.normalize(__dirname + '/..') + '/public'));
+    // Serving client and angular files from client folder
+    app.use(express.static(path.normalize(__dirname + '/../..') + '/client'));
 
 }

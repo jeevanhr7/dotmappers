@@ -14,7 +14,7 @@ var nodemon = require('gulp-nodemon');
 
 // This is a simple task to run node.js app and restart when code edited by developers
 gulp.task('run', function () {
-    nodemon({ script: 'app.js'
+    nodemon({ script: 'server/app.js'
         , ext: 'html js'
         , ignore: [] //'ignored.js'
         , tasks: [] })
@@ -26,6 +26,6 @@ gulp.task('run', function () {
 
 // Run App - This task is to open index.html
 gulp.task('run-open', ['run'],function(){
-    gulp.src('./public/index.html')
+    gulp.src('./client/index.html')
         .pipe(open());
 });
