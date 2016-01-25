@@ -6,8 +6,8 @@
 module.exports = function(app) {
 
     // Prefixed api to easily understand routings
-    app.use('/api/objects', require('./routes/index'));
-    app.use('/api/users', require('./routes/users'));
+    app.use('/api/objects', require('./routes/object'));
+    app.use('/api/users', require('./routes/user'));
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {
@@ -23,7 +23,9 @@ module.exports = function(app) {
     if (app.get('env') === 'development') {
         app.use(function (err, req, res, next) {
             res.status(err.status || 500);
-            res.render('error', {
+
+            // render method refers view engine like ejs, json() will send json back
+            res.json({
                 message: err.message,
                 error: err
             });
@@ -34,7 +36,7 @@ module.exports = function(app) {
 // no stacktraces leaked to user
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.json( {
             message: err.message,
             error: {}
         });
