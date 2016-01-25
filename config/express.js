@@ -20,6 +20,6 @@ module.exports = function(app){
     app.use(cookieParser());
 
     // Serving public and angular files from public folder
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.normalize(__dirname + '/..') + '/public'));
 
 }
