@@ -25,7 +25,7 @@ gulp.task('run', function () {
 
 
 // Run App - This task is to open index.html
-gulp.task('open', function(){
-    gulp.src('./index.html')
+gulp.task('run-open', ['run'],function(){
+    gulp.src('./public/index.html')
         .pipe(open());
 });
