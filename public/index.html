@@ -16,59 +16,36 @@
     <script src="app/app.js"></script>
 
     <script src="app/routes/home/index.js"></script>
-    <script src="app/routes/posts/index.js"></script>
+    <script src="app/routes/objects/index.js"></script>
 
     <script src="app/routes/home/home.controller.js"></script>
-    <script src="app/routes/posts/posts.controller.js"></script>
+    <script src="app/routes/objects/objects.controller.js"></script>
 
-    <script src="app/factories/postFactory/postFactory.js"></script>
+    <script src="app/factories/objectFactory/objectFactory.js"></script>
 
 
 </head>
 <body ng-app="mainApp">
 <div class="page-header">
-    <h1>Flapper News </h1>
+    <h1>Dotmappers </h1>
     <ui-view></ui-view>
 </div>
 <script type="text/ng-template" id="/home.html">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <pre>{{postFactory.getPosts()}}</pre>
-            <div ng-repeat="post in postFactory.getPosts() | orderBy:'upvotes'">
+            <pre>{{objects}}</pre>
+            <div ng-repeat="object in objects ">
                 <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-                <a ng-show="post.link" href="{{post.link}}">
-                    {{post.title}}
-
+                <a  href="#">
+                    {{object.first_name}} {{object.last_name}}
                 </a>
-					<span ng-hide="post.link">
-						{{post.title}}
-
-					</span>
-					<span>
-						<a href="#/posts/{{$index}}">Comments</a>
-					</span>
-                -upvotes:{{post.upvotes}}
             </div>
-
-            <form ng-submit="addPost()" style="margin-top:30px;">
-                <h3>Add a new post</h3>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Title" ng-model="title"></br>
-
-                    <input type="text" class="form-control" placeholder="Link" ng-model="link"></br>
-
-                    <button type="submit" class="btn btn-primary">Post</button>
-                </div>
-
-
-            </form>
         </div>
     </div>
 </script>
 
 
-<script type="text/ng-template" id="/posts.html">
+<script type="text/ng-template" id="/objects.html">
 
     <div ng-repeat="post in postFactory.getPost(currentPostID)">
        <strong>Author:</strong> {{post.author}}<br/>
