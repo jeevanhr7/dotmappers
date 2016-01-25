@@ -8,10 +8,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 module.exports = function(app){
-
-
-// view engine setup
-    app.set('views', path.join(__dirname, 'views'));
+    // view engine setup
+    app.set('views', path.normalize(__dirname + '/..') + '/views');
     app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public

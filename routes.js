@@ -4,8 +4,10 @@
 
 
 module.exports = function(app) {
-    app.use('/objects', require('./routes/index'));
-    app.use('/users', require('./routes/users'));
+
+    // Prefixed api to easily understand routings
+    app.use('/api/objects', require('./routes/index'));
+    app.use('/api/users', require('./routes/users'));
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {
