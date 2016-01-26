@@ -23,7 +23,7 @@ mongoose.connect(config.mongo, function(err) {
     } else {
         console.log('MongoDB connected to ',config.mongo);
         app.listen(config.port,config.ip,function(){
-            console.log("Server running at http://%s:%s",config.ip,onfig.port)
+            console.log("Server running at http://%s:%s",config.ip,config.port)
         })
     }
 });
