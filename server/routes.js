@@ -6,9 +6,9 @@
 module.exports = function(app) {
 
     // Prefixed api to easily understand routings
-    app.use('/api/objects', require('./routes/object'));
-    app.use('/api/users', require('./routes/user'));
-    app.use('/api/students', require('./routes/student'));
+    app.use('/api/objects', require('./api/object'));
+    app.use('/api/users', require('./api/user'));
+    app.use('/api/students', require('./api/student'));
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {
